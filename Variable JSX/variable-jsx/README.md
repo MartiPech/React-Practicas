@@ -1,8 +1,22 @@
-# React + Vite
+## PARA QUE IMPRIMA UNA VARIABLE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2>{string}</h2>
+colocar los "{}"
 
-Currently, two official plugins are available:
+## En el caso de funcion
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>{funcion()}</h2>
+
+##En el casi de Objeto y date , set , map
+
+<h2>{JSON.stringify(obj)}</h2>
+<h2>{JSON.stringify(fecha)}</h2> 
+lo convertimos en una cadena para poder verlo
+
+## Padre
+
+cuando retornas varios elementos JSX en un componente, deben estar envueltos en un solo elemento padre. En tu caso, estás devolviendo tanto un elemento <h1> como un elemento <div> al mismo nivel sin un elemento padre que los contenga.
+
+Para solucionar esto, puedes envolver ambos elementos en un elemento <div> o en un fragmento (<>...</>) para que estén agrupados y puedas devolverlos correctamente.
+
+resumen tiene que tener un padre . NO dos padres. por eso se le coloca un "<> </>" y adentro todo .
