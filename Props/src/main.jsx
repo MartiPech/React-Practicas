@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import {PrimerComponente} from './PrimerComponente'
+import {SegundoComponente} from './SegundoComponente'
+import {TercerComponente} from './TercerComponente'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    < PrimerComponente titulo ='Maria'  />
+    < SegundoComponente titulo = "Roberto" subtitulo = "Planes"/>
+    < TercerComponente titulo = "Suma" subtitulo = {4} />
   </React.StrictMode>,
 )

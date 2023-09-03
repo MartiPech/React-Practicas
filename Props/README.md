@@ -1,8 +1,14 @@
-# React + Vite
+# Pimer caso de componente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+export const PrimerComponente = (props) => {
+console.log(props.titulo)
+return (
 
-Currently, two official plugins are available:
+<h1>{props.titulo}</h1>
+)
+}
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p>Podemos ver que se pone "props" y en el h1 : <h1>{props.titulo}</h1>
+. esto no se suele usar asi. <p/>
+
+# Segundo Caso de componentes
