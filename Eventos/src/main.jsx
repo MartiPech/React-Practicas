@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Eventos from './Eventos'
-  
+import {Contador} from './Contador'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Eventos />
+    < Contador value={0}/>
   </React.StrictMode>,
 )
