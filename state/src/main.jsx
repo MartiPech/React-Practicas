@@ -5,6 +5,6 @@ import {State} from './State'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <State vualue = {0} />
+    <State value = {0} />
   </React.StrictMode>,
 )
