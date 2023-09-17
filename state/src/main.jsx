@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {State} from './state'
+import {State} from './State'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <State />
+    <State vualue = {0} />
   </React.StrictMode>,
 )
