@@ -22,3 +22,11 @@ export const Lista = () => {
     </>
   )
 }
+
+
+let listaSecc = [ 
+  {nombre :"Variables JSX", visto:true},
+  {nombre :"Inst", visto:true},
+  {nombre :"Ternarios", visto:true},
+  {nombre :"map", visto:true},
+]
