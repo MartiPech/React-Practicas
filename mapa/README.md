@@ -1,8 +1,13 @@
-# React + Vite
+# como usar un metodo de array en react , manipulando con un hook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2>como no va a funcionar </h2>
+export const Map = () => 
+  const addTask = () =>{
+    arreglo.push({nombre:"Rafael" , visto:false})
+    console.log(arreglo)
+  }
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>como SI va a funcionar </h2>
+    const addTask = () =>{
+    SetArreglo([...arreglo,{nombre:"Rafael", visto:false}])
+  }
