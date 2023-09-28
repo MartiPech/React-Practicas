@@ -14,9 +14,7 @@ const Item = ({nombre,visto}) => {
 
 
 export const ListaApp = () => {
-  const addTask = () =>{
-    SetArreglo([...arreglo,{nombre:"Rafael", visto:false}])
-  }
+  
   
   let listaSecc = [ 
     {nombre :"Variables JSX", visto:true},
@@ -32,14 +30,13 @@ export const ListaApp = () => {
     <>
       <h1>Lista de tareas</h1>
       
-      <AgregarTarea>hola</AgregarTarea>
+      <AgregarTarea addTarea={SetArreglo}>hola</AgregarTarea>
         
         <li>
           <ol>
             {arreglo.map((item) => (
               <Item key={item.nombre} nombre={item.nombre} visto={item.visto} />
             ))}
-            <button onClick={()=>addTask()}>Agregar Tarea</button>
           </ol>
         </li>
       </>
