@@ -7,13 +7,10 @@ export const AgregarTarea = ({addTarea}) => {
     
   }
   const onSubmit = (event)=>{
-    const envio ={
-      nombre:inputValue,
-      visto:false
-    }
+    
     event.preventDefault()
-    addTarea(tarea =>[...tarea,envio])
-    console.log(inputValue)
+    addTarea([inputValue])
+    
   }
 
   return (
