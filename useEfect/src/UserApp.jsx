@@ -4,6 +4,8 @@ useState
 const UserApp = () => {
 
   const  [userdata ,setUserdata] = useState([])
+
+ 
   
   const FetchUser = async () =>{
     try{
@@ -18,9 +20,11 @@ const UserApp = () => {
 
         
   }
-    useEffect( ()=>{
-        FetchUser()
-    },[])
+
+  const handlerFetch = ()=>{
+    FetchUser()
+  }
+    
     
     
     return (
@@ -28,6 +32,7 @@ const UserApp = () => {
     <h1>Lista de usuarios</h1>
     <ul>
         {userdata.map(user => <li key={user.id}>{user.name}</li>)}
+        <button onClick={handlerFetch}>Api</button>
     </ul>
     
     
