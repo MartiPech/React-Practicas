@@ -1,5 +1,5 @@
 import { useEffect , useState } from "react"
-import { useFetchData } from "./Hooks/useFetchData"
+import { useFetchData } from "../Hooks/useFetchData"
 
 const UserList = ({endPoint}) => {
     const {data , isLoading } = useFetchData(endPoint)
