@@ -23,6 +23,8 @@ export const App = () => {
 
     const [active , setActive] = useState(false)
     const handlerToggle = () => setActive(!active)
+    const handlerTrue =   () => setActive(true)
+    const handlerFalse=   () => setActive(false)
 
 
     return (
@@ -49,8 +51,8 @@ export const App = () => {
 
     <h1>Active Booleano</h1>
         <button onClick={handlerToggle}>Cambio</button>
-        <button>True</button>
-        <button>False</button>
+        <button onClick={handlerTrue}>True</button>
+        <button onClick={handlerFalse}>False</button>
         {active.toString()}                 
     </>
   )
