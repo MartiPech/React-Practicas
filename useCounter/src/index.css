@@ -25,10 +25,8 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  display: block;
+  padding: 2% 3%;
 }
 
 h1 {
@@ -46,6 +44,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 1em;
 }
 button:hover {
   border-color: #646cff;
