@@ -14,7 +14,7 @@ export const useFetchData = (endPoint) => {
       })
       .catch((error) => {
         console.log("Error en useFetchData:", error);
-        setIsLoading(false); // Asegúrate de manejar el estado en caso de error
+        setIsLoading(false); // Asegúrate de manejar el estado en caso de error   
       });
   }, [endPoint]);
 
