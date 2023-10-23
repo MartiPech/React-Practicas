@@ -18,6 +18,11 @@ const useCounter = () => {
 
 export const App = () => {
     const { counter, sumar, reset, restar } = useCounter();
+    const counterLeft = useCounter();
+    const counterRight= useCounter();
+
+    const [active , setActive] = useState(false)
+    const handlerToggle = () => setActive(!active)
 
 
     return (
@@ -27,6 +32,26 @@ export const App = () => {
             <button onClick={sumar}>Sumar</button>
             <button onClick={reset}>Reset</button>
             <button onClick={restar}>Restar</button>
+
+    <h1>counter Left</h1>
+        <div> {counterLeft.counter} </div>
+        <button onClick={counterLeft.sumar}>+</button>
+        <button onClick={counterLeft.reset}>Reset</button>
+        <button onClick={counterLeft.restar}>-</button>
+
+
+
+    <h1>counter Right</h1>
+        <div> {counterRight.counter} </div>
+        <button onClick={counterRight.sumar}>+</button>
+        <button onClick={counterRight.reset}>Reset</button>
+        <button onClick={counterRight.restar}>-</button>
+
+    <h1>Active Booleano</h1>
+        <button onClick={handlerToggle}>Cambio</button>
+        <button>True</button>
+        <button>False</button>
+        {active.toString()}                 
     </>
   )
 }
