@@ -16,17 +16,26 @@ const useCounter = () => {
     }
 }
 
+const useToggle = () =>{
+    const [active , setActive] = useState(false)
+        const handlerToggle = () => setActive(!active)
+        const handlerTrue =   () => setActive(true)
+        const handlerFalse=   () => setActive(false)
+
+        return{
+            active,
+            handlerToggle,
+            handlerFalse,
+            handlerTrue
+        }
+}
+
 export const App = () => {
-    const { counter, sumar, reset, restar } = useCounter();
+const { counter, sumar, reset, restar } = useCounter();
     const counterLeft = useCounter();
     const counterRight= useCounter();
 
-    const [active , setActive] = useState(false)
-    const handlerToggle = () => setActive(!active)
-    const handlerTrue =   () => setActive(true)
-    const handlerFalse=   () => setActive(false)
-
-
+const {active , handlerFalse , handlerToggle , handlerTrue} = useToggle(false)
     return (
     <>
     <h1>Counter</h1>
@@ -53,7 +62,15 @@ export const App = () => {
         <button onClick={handlerToggle}>Cambio</button>
         <button onClick={handlerTrue}>True</button>
         <button onClick={handlerFalse}>False</button>
-        {active.toString()}                 
+        {active.toString()}     
+        <hr />
+               
     </>
   )
 }
+
+
+
+
+
+export default App;
