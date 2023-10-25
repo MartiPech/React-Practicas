@@ -7,7 +7,7 @@ export const ContadorComponent = () => {
   return (
     <>
     <h1>Contador: {counter} </h1>
-    <button onClick={() => sumar()}>+</button>
+    <button onClick={() => sumar(3)}>+</button>
     <button onClick={() => reset()}>Reset</button>
     <button onClick={() => restar()}>-</button>
 

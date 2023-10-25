@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const useCounter = () => {
     const [counter , setCounter] = useState(0)
 
-    const sumar =  () => setCounter(counter + 1)
+    const sumar =  (valor) => setCounter(counter + valor)
     const restar = () => setCounter(counter - 1)
     const reset =  () => setCounter(0)
 
@@ -40,7 +40,7 @@ const {active , handlerFalse , handlerToggle , handlerTrue} = useToggle(false)
     <>
     <h1>Counter</h1>
         <div> {counter} </div>
-            <button onClick={sumar}>Sumar</button>
+            <button onClick={()=>sumar(3)}>Sumar</button>
             <button onClick={reset}>Reset</button>
             <button onClick={restar}>Restar</button>
 
