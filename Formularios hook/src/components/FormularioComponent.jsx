@@ -3,9 +3,9 @@ import { useState } from "react"
 export const FormularioComponent = () => {
 
     const [formstate , setFormsate]= useState({
-        userName :"Christian",
-        email:"chris@gmail.com",
-        password:1234556
+        userName :"",
+        email:"",
+        password:""
     })
 
     const {userName ,email,password }= formstate
