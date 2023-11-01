@@ -20,3 +20,9 @@ form{
   
 
 }
+
+span{
+  color: brown;
+  font-size: small;
+  display: block;
+}
