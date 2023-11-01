@@ -15,11 +15,23 @@ const Formularios = () => {
     <form onSubmit={onSubmit}>
         {/*NOMBRE*/}
         <label htmlFor="nombre">Nombre <input {...register('nombre',
-        {required:true,
-        minLength:2,
-        maxLength:20})} 
+        {required:{
+            value:true,
+            message:"Nombre requerido",
+
+        },
+        minLength:{
+            value:2,
+            message:"Nombre cort",
+        },
+        maxLength:{
+            value:20,
+            message:"No debe tener mas de 20 caracteres"
+        }
+        })} 
         type="text" /></label>
         
+        {errors.nombre && <span> {errors.nombre.message} </span>}
         {/* 
         Esto es una forma para que salgan los errores de rellenario
         {errors.nombre?.type ==="required" && <span>Nombre requerido</span>}
