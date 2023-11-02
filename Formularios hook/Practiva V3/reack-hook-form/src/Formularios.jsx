@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 
 const Formularios = () => {
 
-    const { register, handleSubmit , formState:{errors}} = useForm();
-    const onSubmit = handleSubmit ((event) => console.log(event));
+    const { register, handleSubmit , formState:{errors},watch,setValue} = useForm();
+    const onSubmit = handleSubmit ((event) => console.log(event.file));
     console.log(errors)
     
     
@@ -42,18 +42,66 @@ const Formularios = () => {
 
         {/*EMAIL*/}
         <label htmlFor="email">Correo<input {...register('email',
-        {required:true})} type="email" /></label>
+        {required:{
+            value:true,
+            message:"Correo requerido"
+        },
+        pattern:{
+            value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            message:"Email no valida"
+        }
+        })} type="email" /></label>
+        
+        {errors.email && <span> {errors.email.message} </span>}
+        
         
         {/*CONTRASEÑA*/}
         <label htmlFor="password">Password <input {...register('password',
-        {required:true})} type="password" /></label>
-        
+        {required:{
+            value:true,
+            message:"Contraseña Requerida"
+        }})} type="password" /></label>
+        {errors.password && <span> {errors.password.message} </span>}
+
         {/*CONFIRMAR CONTRASEÑA*/}
         <label htmlFor="confirmarpassword">Confirmar Password <input {...register('confirmarpassword',
-        {required:true})} type="password" /></label>
+        {required:{
+            value:true,
+            message:"Confirmar es necesario"
+        },
+        validate:(value)=>{
+            {/* 
+            if(value === watch("password")){
+                return true
+            }else{
+                return "No coinciden"
+            }
+            */}
+            return value ===watch("password") ||"No coinciden"
+        }})} type="password" /></label>
+        {errors.confirmarpassword && <span> {errors.confirmarpassword.message} </span>}
         
         {/*date*/}
-        <label htmlFor="date">Fecha de nacimiento <input {...register('date')} type="date" /></label>
+        <label htmlFor="date">Fecha de nacimiento <input {...register('date',{
+        required:{
+            value:true,
+            message:"Fecha de nacimiento necesaria"
+        },
+        validate:(value) => {
+            const fechaBirth = new Date(value);
+            const fechaActual = new Date();
+            const edad = fechaActual.getFullYear() - fechaBirth.getFullYear();
+            console.log(edad)
+            {/*La forma de novato 
+            if(edad>= 18){
+                return true
+            }else{
+                return "Es menor de edad"
+            }
+            */}
+            return edad>=18 || "Debe ser mayor de edad"
+        }})} type="date" /></label>
+        {errors.date && <span> {errors.date.message} </span>}
         
         {/*pais*/}
         <label htmlFor="pais">
@@ -66,12 +114,21 @@ const Formularios = () => {
         </label>
         
         {/*Cargar Archivo*/}
+{ /* 
         <label htmlFor="file">Foto <input {...register('file')} type="file" /></label>
+*/}
+        <label htmlFor="file">Foto <input onChange={(e) => {
+        console.log(e.target.files[0]);
+        setValue("UserPic", e.target.files[0].name);
+        }} type="file" />
+        </label>
         
         {/*Termino de condición*/}
         <label htmlFor="check">Estoy de acuerdo <input {...register('checkbox')} type="checkbox" />
             <button type='submit'>Enviar</button>
         </label>
+
+        <pre> {JSON.stringify(watch(),null,2)} </pre>
 
     </form>
     
