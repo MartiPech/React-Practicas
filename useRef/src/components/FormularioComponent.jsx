@@ -1,7 +1,9 @@
+import { useEffect, useRef } from "react"
 import { useForm } from "../Hooks/useForm"
 
 export const FormularioComponent = () => {
 
+    const focusRef = useRef()  
     const initialForm = {
         userName :"",
         email:"",
@@ -15,6 +17,10 @@ export const FormularioComponent = () => {
         event.preventDefault()
         console.log(formstate)
     }
+
+    useEffect(()=>{
+      focusRef.current.focus()
+    },[])
   
   
 return (
@@ -33,6 +39,7 @@ return (
       <div className="form-group">
         <label htmlFor="userName">Email address</label>
         <input 
+        ref = {focusRef}  
         type="email" 
         className="form-control" 
         name="email" 
