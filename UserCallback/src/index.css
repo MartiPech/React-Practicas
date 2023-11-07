@@ -1,0 +1,9 @@
+body{
+  margin: 1% 2%;
+  background-color: black;
+  color: aliceblue;
+}
+
+button:active {
+  background-color: #b30000; /* Cambia el color de fondo cuando se presiona */
+}
