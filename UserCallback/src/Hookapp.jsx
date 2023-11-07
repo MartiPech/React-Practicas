@@ -1,4 +1,4 @@
-import { Contador } from "./Contador"
+import { Contador } from "./Components/Contador"
 
 export const Hookapp = () => {
   return (

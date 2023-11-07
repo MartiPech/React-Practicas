@@ -1,13 +1,13 @@
-import { useState } from "react";
-import  Sumar  from "./Components/sumar";
+import { useCallback, useState } from "react";
+import  Sumar  from "./sumar"
 
 
 export const Contador = () => {
 
     const [counter , setCounter] = useState(0)
-    const Add = ()=>{
-        setCounter(counter +1)
-    }
+    const Add = useCallback(()=>{
+        setCounter(counter => counter + 1)
+    },[])
 
   return (
     <>
