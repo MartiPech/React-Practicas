@@ -1,46 +1,17 @@
-import React, { useState, useReducer } from 'react'
-
-const initialState ={
-  counter:0  
-}
-
-const TYPES ={
-  INCREMENT:"INCREMENT",
-  INCREMENT_5:"INCREMENT_5",
-  DECREMENT:"DECREMENT",
-  DECREMENT_5:"DECREMENT_5",
-  RESET : "RESET"
-}
-
-function reduce (state,action){
-    switch (action.type) {
-        case TYPES.INCREMENT:
-            return {counter : state.counter + 1 }
-        case TYPES.INCREMENT_5:
-            return {counter : state.counter + action.payload } 
-        case TYPES.DECREMENT:
-            return {counter : state.counter - 1 } 
-        case TYPES.DECREMENT_5:
-            return {counter : state.counter - action.payload } 
-        case TYPES.RESET:
-              return {counter : 0 }           
-        default:
-            return state
-        
-    }
-}
-
+import React, {useReducer } from 'react'
+import { CounterReducer, initialState } from '../Helpers/CounterReducer'
+import { TYPES } from '../Helpers/CounterAction'
 
 export const ContadorComp = () => {
   
-  //const [counter, setCounter] = useState(0)
-  const [state, dispatch] = useReducer(reduce, initialState)
   
-  //const incrementar = ()=> setCounter(counter + 1)
+  const [state, dispatch] = useReducer(CounterReducer, initialState)
+  
+  
   const increment = ()=> dispatch({type:TYPES.INCREMENT})
   const increment_5 = ()=> dispatch({type:TYPES.INCREMENT_5,payload:5})
 
-  //const decrementar = ()=> setCounter(counter - 1)
+  
   const decrementar = ()=> dispatch({type:TYPES.DECREMENT})
   const decrementar_5 = ()=> dispatch({type:TYPES.DECREMENT_5,payload:5})
   const reset = ()=> dispatch({type:TYPES.RESET})
