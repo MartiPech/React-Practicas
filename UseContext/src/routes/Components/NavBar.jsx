@@ -17,7 +17,7 @@ export const NavBar = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <NavLink className="nav-link" to="/"exact>Home</NavLink>
+            <NavLink className="nav-link" to="/" exact="true" >Home</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/about">About</NavLink>
