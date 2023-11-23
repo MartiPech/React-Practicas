@@ -1,7 +1,6 @@
 import React from 'react';
 import { StateCompo } from './Context/StateCompo';
 import { Contador } from './Components/Contador';
-import { useContext } from 'react';
 
 
 
