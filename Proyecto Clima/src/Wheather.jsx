@@ -6,6 +6,7 @@ export const Wheather = () => {
   const apiKey = 'c5d3f02cd0bc260506d4355066d90f33'
   const [ciudad , setCiudad] = useState("")
   const [dataclima,setDataclima] = useState(null)
+  const KaC = 273.15
   
   const HandlerCambioClima = (e)=>{
       setCiudad(e.target.value)
@@ -15,6 +16,8 @@ export const Wheather = () => {
     e.preventDefault()
     if(ciudad.length>0){
       fetchClima()
+    }else{
+      setDataclima(null)
     }
   }
   const fetchClima = async ()=> {
@@ -30,13 +33,22 @@ export const Wheather = () => {
   return (
     <div className='container'>
       <h1>Aplicacionde de clima</h1>
-      <form onSubmit={HandlerSubmit}>
-        <input type="text" 
-        value={ciudad}
-        onChange={HandlerCambioClima}/>
-        <button>Buscar</button>
+        <form onSubmit={HandlerSubmit}>
+          <input type="text" 
+          value={ciudad}
+          onChange={HandlerCambioClima}/>
+          <button>Buscar</button>
 
-      </form>
+        </form>
+
+        { dataclima !== null  &&(
+            <div>
+              <h2> {dataclima.name} </h2>
+              <p>Temperatura: {parseInt(dataclima?.main.temp - KaC)}° </p>
+              <p>Condicion meteorológica: {dataclima?.weather[0].description} </p>
+              <img src={`https://openweathermap.org/img/wn/${dataclima.weather[0].icon}@2x.png`} />
+            </div>
+        ) }
     </div>
   )
 }
