@@ -1,39 +1,27 @@
-import React, { useState , useEffect} from 'react'
-import { Card } from '../Components/Card'
+import React, { useState, useEffect, useContext } from 'react';
+import { Card } from '../Components/Card';
+import { ProductosContext } from '../Context/ProductosContext';
 
 const ComprasPage = () => {
   
-const [productos, setProductos] = useState([])  
-const fetchProductos = async ()=>{
-    try{
-        const response = await fetch('https://fakestoreapi.com/products')
-        const data = await response.json()
-        setProductos(data);
-        console.log(data)
-    }catch(error){
-        console.error('Error en el fetch',error)
-    }
-}
-useEffect(() => {
-    fetchProductos()
-}, [])
+  const {productos} = useContext(ProductosContext)
 
-
-return (
+  return (
     <>
-        <h1>Compras: </h1>
-        <hr />
-        
-        {productos.map((producto)=>(
-            <Card>
-                imagen={producto.image}
-                titulo={producto.title}
-                descripcion={producto.description}
-                precio={producto.price}
-            </Card>
-        ))}
-    </>
-  )
-}
+      <h1>Compras: </h1>
+      <hr />
 
-export default ComprasPage
+      {productos.map((producto) => (
+        <Card
+          key={producto.id} 
+          imagen={producto.image}
+          titulo={producto.title}
+          descripcion={producto.description}
+          precio={producto.price}
+        />
+      ))}
+    </>
+  );
+};
+
+export default ComprasPage;
