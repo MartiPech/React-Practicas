@@ -7,6 +7,11 @@ export const CarritoProvider = ({Children}) => {
 
     const [listaCompras , dispatch]= useReducer(comprasReducer,initialState)
 
+    const agregarCompra = ()=>
+    const aumentarCompra = ()=>
+    const disminuirCompra = ()=>
+    const eliminarCompra = ()=>
+
   return (
     <CarritoContext.Provider>
         {Children}

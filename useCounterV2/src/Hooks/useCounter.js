@@ -5,7 +5,7 @@ export const useCounter = (valorInicial = 0) => {
 
     const sumar = (valor = 1) =>{ setCounter(counter + valor)}
     const reset = () =>{setCounter(0)}
-    const restar = (valor = 1, negativo=true) =>{
+    const restar = (valor = 1, negativo=false) =>{
         if(!negativo && counter -valor < 1){
             setCounter(0)
             return
@@ -20,3 +20,10 @@ export const useCounter = (valorInicial = 0) => {
     reset
   }
 }
+
+
+fetch('https://api.example.com/data').then(res=>{
+  return res.json()
+}).then(res=>{
+  console.log(res)
+})
