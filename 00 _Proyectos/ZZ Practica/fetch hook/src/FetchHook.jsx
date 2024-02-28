@@ -1,26 +1,24 @@
 import { useEffect } from "react"
 
-export const FetchHook = () => {
 
+export const FetchHook = () => {
   useEffect(() => {
-    const getFetch = async ()=>{
-      try{
-        const res = await fetch('https://fakestoreapi.com/products');
-        const data = await res.json();
+    try{
+      const getfetch = async ()=>{
+        const res = await fetch ('https://fakestoreapi.com/products')
+        const data = await res.json()
         console.log(data)
-      }catch(Errors){
-        console.error(Errors, "paso un error")
       }
+
+    }catch(error){
+      console.error("esto no anda")
     }
-    getFetch()
+    getfetch()
   }, [])
   
-
   return (
     <div>FetchHook</div>
   )
 }
-
-
 
 
