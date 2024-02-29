@@ -15,11 +15,15 @@ export const initial_carrito = {
 
 export function Reducer_carrito(state, action) {
     switch (action.type) {
-        case  TYPES.Add_car:
-            //logica
+        case  TYPES.Add_car:{
+            let newItem = state.productos.find(producto => producto.id === action.payload );
+            //console.log(newItem)
+
             return{
                 ...state,
+                cart:[...state.cart,newItem]
             }
+        }
         
         
         case  TYPES.Clear_car:
