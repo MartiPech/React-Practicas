@@ -19,11 +19,20 @@ export function Reducer_carrito(state, action) {
             let newItem = state.productos.find(producto => producto.id === action.payload );
             //console.log(newItem)
 
-            return{
-                ...state,
-                cart:[...state.cart,newItem]
+            let iteminCart = state.cart.find((item)=> item.id === newItem.id)
+
+            return iteminCart
+            ?
+            {...state,
+                    cart:state.cart.map((item)=>
+                    item.id === newItem.id
+                        ?
+                        {..item , quality:item.quality+1}
+                        :item
+                )
+                { ...state,
+                    cart:[...state.cart,{...newItem , quality:1}]}
             }
-        }
         
         
         case  TYPES.Clear_car:
